@@ -3,13 +3,17 @@ Using CoreMotion to detect device orientation, and post notification when device
 
 
 // Init
+````objective-c
 [DeviceOrientation sharedInstance]create];
-
+````
+````objective-c
 // observer notification
 // viewDidLoad or anywhere you want listerner
 [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orientationChanged:) name:@"kDeviveChangeOrientation" object:nil];
+````
 
 // listener
+````objective-c
 - (void)orientationChanged:(NSNotification *)notification{
     UIInterfaceOrientation currentOrientation = (UIInterfaceOrientation)[[notification.userInfo objectForKey:@"orientation"] integerValue];
     switch (currentOrientation) {
@@ -40,3 +44,4 @@ Using CoreMotion to detect device orientation, and post notification when device
             break;
         }
     }
+````
